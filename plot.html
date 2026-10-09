@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Traffic Simulation</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        body { font-family: sans-serif; display: flex; flex-direction:column; justify-content: center; align-items: center; margin: 0; background-color: #f0f2f5; }
+        p {margin: 0;}
+    </style>
+</head>
+<body>
+<h1>Traffic Simulation</h1>
+<p>Duration: 0hrs 16mins 40secs</p>
+<p>Road Capacity: 200</p>
+<p>Average New Cars / Sec: 4</p>
+<p>Number of Crashes: 0</p>
+<p>Total # of Cars Simulated: 3853</p>
+The number of moments (individual seconds) in which there were 0 cars: 1</p>
+The number of moments (individual seconds) in which there was exactly 1 car: 0</p>
+The number of moments (individual seconds) in which there were only 2 cars: 0</p>
+The number of moments (individual seconds) in which there were 10 cars or fewer: 190 (about 19% of the entire simulation time.)</p>
+<h4>Below is a plot of the number of cars actively traveling between 2hr 0min and 2hr 10min.</h4>
+    <div id="TraffSimPlotDiv"></div>
+    <script>
+        var xData = [];
+        var yData = [];
+        var trace1 = {
+            x: xData,
+            y: yData,
+            mode: 'lines',
+            type: 'scattergl',
+            marker: { size: 8, color: 'blue' }
+        };
+        var layout = {
+            title: 'Cars Traveling Over Time',
+            xaxis: { title: 'Time (seconds)' },
+            yaxis: { title: 'Number of Cars' },
+            hovermode: 'closest'
+        };
+        var data = [trace1];
+        Plotly.newPlot('TraffSimPlotDiv', data, layout, {responsive: true});
+    </script>
+</body>
+</html>
